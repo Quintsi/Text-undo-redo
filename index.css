@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: azure;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#userWriting {
+    resize: none;
+    all: unset;
+    border: .2rem solid black;
+    box-shadow: -1px 1px 4px black;
+    background-color: whitesmoke;
+    width: 500px;
+    height: 500px;
+    padding: 2rem;
+    margin: 1rem;
+}
