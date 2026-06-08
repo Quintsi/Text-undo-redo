@@ -29,6 +29,23 @@ export class DoublyLinkedList {
         return this;
     }
 
+    pop(){
+        if(this.length === 0){
+            break;
+        }
+
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        }else {
+            this.tail.prev = this.tail;
+            this.tail.next = null;
+        }
+
+        this.length--;
+        return this;
+    }
+
     unshift(val){
         const newNode = new Node(val);
 
@@ -42,6 +59,23 @@ export class DoublyLinkedList {
         }
 
         this.length++;
+        return this;
+    }
+
+    shift(){
+        if(this.length === 0){
+            break;
+        }
+
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        }else {
+            this.head.next = this.head;
+            this.head.prev = null;
+        }
+
+        this.length--;
         return this;
     }
 
