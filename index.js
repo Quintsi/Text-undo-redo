@@ -5,10 +5,28 @@ const userInput = document.getElementById("userWriting");
 const undo = document.getElementById("undo");
 const redo = document.getElementById("redo");
 
-userInput.addEventListener("keydown", (event) => {
-    if(event.key === " " || event.key === "."){
-        let input = userInput.value.split(" ").at(-1);
-        DLL.append(input);
-        console.log(DLL);
+DLL.append("");
+
+let current;
+
+userInput.addEventListener("keydown", (e) => {
+    if(e.key === " " || e.key === "."){
+        DLL.append(userInput.value);
+        current = DLL.tail;
+        console.log(current.data);
     }
 });
+
+undo.addEventListener("click", (e) => {
+    if(current.prev != null){
+        current = current.prev;
+    }
+    userInput.value = current.data;
+});
+
+redo.addEventListener("click", (e) => {
+    if(current.next != null){
+        current = current.next;
+    }
+    userInput.value = current.data;
+})

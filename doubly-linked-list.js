@@ -31,7 +31,7 @@ export class DoublyLinkedList {
 
     pop(){
         if(this.length === 0){
-            break;
+            return this;
         }
 
         if(this.length === 1){
@@ -64,7 +64,7 @@ export class DoublyLinkedList {
 
     shift(){
         if(this.length === 0){
-            break;
+            return this;
         }
 
         if(this.length === 1){
