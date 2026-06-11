@@ -7,13 +7,18 @@ const redo = document.getElementById("redo");
 
 DLL.append("");
 
-let current;
+let current = DLL.tail;
 
 userInput.addEventListener("keydown", (e) => {
     if(e.key === " " || e.key === "."){
+        if(current != DLL.tail){
+            while(current.next != null){
+                DLL.pop();
+            }
+        }
+        
         DLL.append(userInput.value);
         current = DLL.tail;
-        console.log(current.data);
     }
 });
 
@@ -29,4 +34,4 @@ redo.addEventListener("click", (e) => {
         current = current.next;
     }
     userInput.value = current.data;
-})
+});

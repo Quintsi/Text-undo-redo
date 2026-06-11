@@ -46,6 +46,17 @@ export class DoublyLinkedList {
         return this;
     }
 
+    sever(index){
+        let curr = this.head;
+        let count = 0
+        while(index > count){
+            curr = curr.next;
+            count ++;
+        }
+
+        curr.next = null;
+    }
+
     unshift(val){
         const newNode = new Node(val);
 
