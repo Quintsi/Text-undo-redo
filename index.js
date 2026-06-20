@@ -9,12 +9,10 @@ DLL.append("");
 
 let current = DLL.tail;
 
-userInput.addEventListener("keydown", (e) => {
-    if(e.key === " " || e.key === "."){
+userInput.addEventListener("input", (e) => {
+    if(e.data === " " || e.data === "."){
         if(current != DLL.tail){
-            while(current.next != null){
-                DLL.pop();
-            }
+            DLL.sever(current);
         }
         
         DLL.append(userInput.value);

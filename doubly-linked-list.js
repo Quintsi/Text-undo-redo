@@ -38,7 +38,7 @@ export class DoublyLinkedList {
             this.head = null;
             this.tail = null;
         }else {
-            this.tail.prev = this.tail;
+            this.tail = this.tail.prev;
             this.tail.next = null;
         }
 
@@ -46,15 +46,21 @@ export class DoublyLinkedList {
         return this;
     }
 
-    sever(index){
+    sever(node){
+        if (!node) return this;
+
+        node.next = null;
+        this.tail = node;
+
+        let count = 1;
         let curr = this.head;
-        let count = 0
-        while(index > count){
+        while(curr !== this.tail){
+            count++;
             curr = curr.next;
-            count ++;
         }
 
-        curr.next = null;
+        this.length = count;
+        return this;
     }
 
     unshift(val){
@@ -82,7 +88,7 @@ export class DoublyLinkedList {
             this.head = null;
             this.tail = null;
         }else {
-            this.head.next = this.head;
+            this.head = this.head.next;
             this.head.prev = null;
         }
 
