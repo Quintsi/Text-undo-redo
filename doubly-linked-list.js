@@ -13,6 +13,7 @@ export class DoublyLinkedList {
         this.length = 0;
     }
 
+    //adds a value to the end of the list
     append(val){
         const newNode = new Node(val);
 
@@ -29,6 +30,7 @@ export class DoublyLinkedList {
         return this;
     }
 
+    //removes a node from the end of the list
     pop(){
         if(this.length === 0){
             return this;
@@ -46,6 +48,8 @@ export class DoublyLinkedList {
         return this;
     }
 
+    //removes all nodes from the users current position in the list.
+    //this method is used to remove all nodes that a user has undone once new changes are made to the list
     sever(node){
         if (!node) return this;
 
@@ -63,6 +67,7 @@ export class DoublyLinkedList {
         return this;
     }
 
+    //adds a node to the start of the list
     unshift(val){
         const newNode = new Node(val);
 
@@ -79,6 +84,7 @@ export class DoublyLinkedList {
         return this;
     }
 
+    //removes a node from the start of the list
     shift(){
         if(this.length === 0){
             return this;

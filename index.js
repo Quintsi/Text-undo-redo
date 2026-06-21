@@ -9,6 +9,7 @@ DLL.append("");
 
 let current = DLL.tail;
 
+//main way that the state changes. If the user presses space or period then the changes will be saved in a new linked list node.
 userInput.addEventListener("input", (e) => {
     if(e.data === " " || e.data === "."){
         if(current != DLL.tail){
@@ -20,6 +21,7 @@ userInput.addEventListener("input", (e) => {
     }
 });
 
+// moves the linked list back to a previous node in the list
 undo.addEventListener("click", (e) => {
     if(current.prev != null){
         current = current.prev;
@@ -27,6 +29,7 @@ undo.addEventListener("click", (e) => {
     userInput.value = current.data;
 });
 
+//move the linked list forward to a more recent node if such a node exists.
 redo.addEventListener("click", (e) => {
     if(current.next != null){
         current = current.next;
